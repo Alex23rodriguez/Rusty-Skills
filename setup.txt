@@ -58,13 +58,26 @@ main() {
 
     local _url="${RUSTUP_UPDATE_ROOT}/dist/${_arch}/rustup-init${_ext}"
 
-    printf "$_url\n"
-    return 1
 
 
     local _dir
     _dir="$(mktemp -d 2>/dev/null || ensure mktemp -d -t rustup)"
     local _file="${_dir}/rustup-init${_ext}"
+
+
+case "test" in
+ 5) a=$c ;;
+ "testaaa") a=lool ;;
+ "test") a=yes ;;
+
+esac
+
+    #x=${x:-true}
+    #x=${x:test2}
+
+    printf "%s\n" test $_dir $_file $RUSTUP_UPDATE_ROOT $a
+
+    return 1
 
     local _ansi_escapes_are_valid=false
     if [ -t 2 ]; then
