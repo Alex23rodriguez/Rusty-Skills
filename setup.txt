@@ -64,12 +64,6 @@ main() {
     _dir="$(mktemp -d 2>/dev/null || ensure mktemp -d -t rustup)"
     local _file="${_dir}/rustup-init${_ext}"
 
-    x=${x:-"default_value"}
-    x=${x:-"x is set!"}
-
-    printf "%s\n" test $_dir $_file $RUSTUP_UPDATE_ROOT $x
-
-    return 1
 
     local _ansi_escapes_are_valid=false
     if [ -t 2 ]; then
@@ -81,6 +75,14 @@ main() {
             esac
         fi
     fi
+
+    printf "%s\n" "return?"
+    return 0
+
+    # in terminal, run $? to get the return value!
+    #echo $?
+    # for some reason can only return 1 or 0
+
 
     # check if we have to use /dev/tty to prompt the user
     local need_tty=yes
