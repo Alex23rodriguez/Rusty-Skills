@@ -49,7 +49,9 @@ main() {
     local _arch="$RETVAL"
     assert_nz "$_arch" "arch"
 
-    printf "\33[1mthis text is in bold:\33[0m this text isnt test\n" 1>&2
+    printf "%s\n" this is a test
+    printf "%s" this is another test
+
     return 1
 
     local _ext=""
