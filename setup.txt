@@ -49,11 +49,6 @@ main() {
     local _arch="$RETVAL"
     assert_nz "$_arch" "arch"
 
-    printf "%s\n" this is a test
-    printf "%s" this is another test
-
-    return 1
-
     local _ext=""
     case "$_arch" in
         *windows*)
@@ -62,6 +57,10 @@ main() {
     esac
 
     local _url="${RUSTUP_UPDATE_ROOT}/dist/${_arch}/rustup-init${_ext}"
+
+    printf "$_url\n"
+    return 1
+
 
     local _dir
     _dir="$(mktemp -d 2>/dev/null || ensure mktemp -d -t rustup)"
