@@ -76,17 +76,14 @@ main() {
         fi
     fi
 
-    printf "%s\n" "return?"
-    return 0
-
-    # in terminal, run $? to get the return value!
-    #echo $?
-    # for some reason can only return 1 or 0
-
+    # for all uses of $, check out
+    # https://stackoverflow.com/questions/5163144/what-are-the-special-dollar-sign-shell-variables#5163260
 
     # check if we have to use /dev/tty to prompt the user
     local need_tty=yes
+
     for arg in "$@"; do
+	printf "%s\n" $@
         case "$arg" in
             -h|--help)
                 usage
